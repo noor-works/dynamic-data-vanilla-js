@@ -1,0 +1,180 @@
+header {
+  position: sticky;
+  top: 0;
+  box-shadow: var(--shadow);
+  background: var(--light);
+  z-index: 1;
+}
+
+.navbar {
+  min-height: var(--nav-height);
+}
+
+.navbar-nav a {
+  display: flex;
+  padding: 1rem;
+}
+
+.navbar-nav a:hover {
+  background: var(--accent);
+}
+
+.menu-item-has-children > a::after {
+  font-family: "FontAwesome";
+  content: "\f078";
+  margin-left: auto;
+  font-size: 10px;
+}
+
+.logo {
+  font-weight: bold;
+  margin-right: 4rem;
+}
+
+.burger {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.burger,
+.theme-toggle {
+  cursor: pointer;
+}
+
+[data-theme="light"] .theme-toggle::after {
+  font-family: "FontAwesome";
+  content: "\f186";
+  font-size: 19px;
+  font-weight: 900;
+}
+
+[data-theme="dark"] .theme-toggle::after {
+  font-family: "FontAwesome";
+  content: "\f185";
+  font-size: 18px;
+  font-weight: 900;
+}
+
+@media (min-width: 800px) {
+  .burger {
+    display: none;
+  }
+
+  .theme-toggle {
+    order: 3;
+    margin-left: auto;
+  }
+
+  .navbar-nav {
+    gap: 1rem;
+  }
+
+  .navbar-nav li {
+    position: relative;
+  }
+
+  .sub-menu {
+    position: absolute;
+    top: calc(var(--nav-height) - 1rem);
+    left: 0;
+    display: none;
+    min-width: var(--menu-width);
+    background: var(--light);
+    border: var(--border);
+  }
+
+  .sub-menu li:before,
+  .sub-menu > li:last-child:after {
+    background: var(--accent);
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+  }
+
+  .sub-menu > li:first-child::before,
+  .sub-menu > li:last-child::after {
+    height: 0;
+  }
+
+  .sub-menu .sub-menu {
+    top: 0;
+    left: 100%;
+  }
+
+  .menu-item-has-children:hover > .sub-menu {
+    display: block;
+  }
+
+  .menu-item-has-children .menu-item-has-children > a::after {
+    content: "\f054";
+  }
+
+  .navbar-nav > .menu-item-has-children > a::after {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .md-column {
+    flex-direction: column;
+  }
+
+  .burger::after {
+    font-family: "FontAwesome";
+    content: "\f0c9";
+    font-size: 20px;
+    font-weight: lighter;
+  }
+
+  .burger.active::after {
+    content: "\f057";
+  }
+
+  .navbar-nav {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    background: var(--light);
+    width: 100%;
+    display: none;
+    max-height: calc(100vh - var(--nav-height));
+    overflow-y: scroll;
+  }
+
+  .navbar-nav.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar-nav li::before,
+  .navbar-nav > li:last-child::after {
+    background: var(--accent);
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+  }
+
+  .navbar-nav > li:first-child::before {
+    height: 0;
+  }
+
+  .navbar-nav a:hover {
+    border: var(--border-dash);
+  }
+
+  .menu-item-has-children > a.active::after {
+    content: "\f077";
+  }
+
+  .menu-item-has-children > a.active + .sub-menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sub-menu {
+    display: none;
+    margin-left: 1rem;
+  }
+}

@@ -1,0 +1,28 @@
+.accordion > .single-card {
+  margin-block: 1rem;
+}
+
+.accordion > .single-card h3 {
+  display: flex;
+  cursor: pointer;
+}
+
+.accordion > .single-card h3::after {
+  font-family: "FontAwesome";
+  content: "\f078";
+  margin-left: auto;
+  font-size: 10px;
+  margin-left: auto;
+}
+
+.accordion > .single-card.active h3::after {
+  content: "\f077";
+}
+
+.accordion > .single-card p {
+  display: none;
+}
+
+.accordion > .single-card.active p {
+  display: block;
+}

@@ -1,0 +1,21 @@
+.single-card {
+  border: var(--border);
+  border-radius: var(--rounded);
+  overflow: hidden;
+}
+
+.single-card h3 {
+  background: var(--accent);
+  padding: 1rem;
+}
+
+.single-card p {
+  padding: 1rem;
+  background: var(--light);
+}
+
+@media (min-width: 800px) {
+  .single-card {
+    flex: 0 0 calc(33.333% - 0.7rem);
+  }
+}

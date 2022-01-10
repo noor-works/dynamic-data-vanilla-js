@@ -1,0 +1,25 @@
+:root {
+  --accent: #ddd;
+  --light: #fff;
+  --dark: #333;
+  --nav-height: 5rem;
+  --menu-width: 15rem;
+  --border: 1px solid var(--accent);
+  --border-dash: 1px dashed var(--dark);
+  --shadow: inset 0 -1px 1px var(--accent);
+  --rounded: 5px;
+  --dot-size: 3px;
+  --dot-space: 15px;
+}
+
+html[data-theme="light"] {
+  --accent: #ddd;
+  --light: #fff;
+  --dark: #333;
+}
+
+html[data-theme="dark"] {
+  --accent: #212121;
+  --light: #141414;
+  --dark: #919191;
+}
